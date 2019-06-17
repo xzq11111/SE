@@ -19,7 +19,6 @@
         <activity android:name=".ParentsMainInterfaceActivity"></activity>
         <activity android:name=".ParentsLoginActivity" />
         <activity android:name=".ParentsRegisterActivity" />
-        <activity android:name=".ParentsRegisterStep2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
