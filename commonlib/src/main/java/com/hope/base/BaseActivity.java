@@ -23,12 +23,23 @@ import com.hope.commonlib.R;
  * @time 2018/9/3
  * @describe
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends AppCompatActivity {
     private LinearLayout llRoot;
     private ConstraintLayout mClTitle;
     private ImageView ivBack;
     private TextView tvTitle;
     private FrameLayout flBody;
+
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            int id = v.getId();
+            if (id == R.id.iv_back) {
+                finish();
+            } else {
+            }
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         tvTitle = findViewById(R.id.tv_title);
         flBody = findViewById(R.id.fl_body);
 
-        ivBack.setOnClickListener(this);
+        ivBack.setOnClickListener(mOnClickListener);
 
         View bodyView = LayoutInflater.from(this).inflate(setLayoutContentView(), null);
         flBody.addView(bodyView);
@@ -78,11 +89,4 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected abstract void initView();
 
     protected abstract void initData();
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.iv_back) {
-            finish();
-        }
-    }
 }
