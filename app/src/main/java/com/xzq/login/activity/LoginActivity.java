@@ -16,6 +16,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private final static String PARAM_ROLE_TYPE = "PARAM_ROLE_TYPE";
     private Button btnLogin;
 
+
     public static void startIntent(Context context, int roleType) {
         Intent intent = new Intent(context, LoginActivity.class);
         intent.putExtra(PARAM_ROLE_TYPE, roleType);
